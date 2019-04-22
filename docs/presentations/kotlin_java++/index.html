@@ -1,0 +1,993 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+    <title>Kotlin: Java++</title>
+
+    <link href="css/reveal.css" rel="stylesheet">
+    <link href="css/theme/black.css" rel="stylesheet">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link href="lib/css/darcula.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+
+        <section>
+            <img src="resources/qsg.png"
+                 style="position: absolute;top: 100px; right: 100px; z-index:500; background:none; border:none; box-shadow:none;">
+
+            <h1>Kotlin:
+                <div style="color: orange;">Java++</div>
+            </h1>
+            <h6>KRZYSZTOF KĘDZIORSKI</h6>
+        </section>
+
+
+        <section style="text-align: left;">
+            <h3>ABOUT ME</h3>
+            <h6>KRZYSZTOF KĘDZIORSKI</h6>
+            <p>
+                <a href="https://www.linkedin.com/in/krzysztof-k%C4%99dziorski-27657874/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/kkedziorski" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/kedziorski" target="_blank"><i class="fab fa-facebook-square"></i></a>
+               <!--  <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a> -->
+
+            </p>
+            <p>D&M Director @ <a href="https://e-qsg.com" target="_blank">QSG S.A.</a></p>
+            <p>Java Developer since 2009</p>
+            <p>Father of lovely daughter</p>
+            <p>Big fan of Mountains</p>
+        </section>
+
+
+        <section data-background-image="resources/what.jpg" style="text-align: right;">
+            <b>WHAT <br/>THE F**K<br/> IS
+                <div style="color: orange;">KOTLIN ?</div>
+            </b>
+        </section>
+
+        <section data-background-image="resources/ketchup.png" style="text-align: right">
+            <h1 class="fragment">No...</h1>
+        </section>
+
+        <section data-background-image="resources/kotlin-logo.png" style="text-align: right">
+            <h1>Yes !</h1>
+        </section>
+
+
+        <section>
+            <p><s>kotlin.com</s> <a href="https://kotlinlang.org">kotlinlang.org</a></p>
+            <img src="resources/kotlinlang-org.png">
+        </section>
+
+
+        <section>
+            Wikipedia definition
+                    <pre>
+Kotlin is a cross-platform, statically typed, general-purpose
+programming language with type inference. Kotlin is designed
+to interoperate fully with Java, and the JVM [...]
+type inference allows its syntax to be more concise.
+Kotlin mainly targets the JVM, but also compiles to
+JavaScript or native code ...</pre>
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section data-background-image="resources/why.jpg" style="text-align: right;">
+            <b>
+                <div style="color: orange;">WHY</div>
+                KOTLIN ?</b>
+        </section>
+
+        <section>
+            <h2>Works on JVM</h2>
+            <p>Compiles to JAVA bytecode</p>
+            <p>Environment doesn't have to change</p>
+        </section>
+        <section>
+            <h2>Great interoperability <br/>with JAVA</h2>
+            <p class="fragment" data-fragment-index="1">Can use all Java libraries from Kotlin</p>
+            <p class="fragment" data-fragment-index="2">Can use all Kotlin libraries from Java</p>
+            <p class="fragment" data-fragment-index="3">and even ...</p>
+            <p class="fragment" data-fragment-index="3">One project can have both Java and Kotlin files</p>
+        </section>
+        <section>
+            <h2>Clear, safety and concise</h2>
+            <p class="fragment">Reduced Java boilerplate</p>
+            <p class="fragment">Null safety</p>
+            <p class="fragment">Smart compiler inference</p>
+            <p class="fragment">Data classes support</p>
+        </section>
+        <section>
+            <h2>Easy to learn for JAVA Developers</h2>
+            <p class="fragment">Syntax similar to Java</p>
+            <p class="fragment">Great documentation</p>
+            <p class="fragment">Awesome IDE support</p>
+        </section>
+        <section>
+            <h2>Great community</h2>
+            <p class="fragment">Very fast growing popularity</p>
+            <p class="fragment">Google and JetBrains support</p>
+            <p class="fragment">Spring support (5.0+)</p>
+            <p class="fragment">The second least-disliked programming language</p>
+        </section>
+
+
+
+
+
+
+
+        <section data-background-image="resources/history.jpg" style="text-align: left;">
+            <b>KOTLIN
+                <div style="color: orange;">HISTORY</div>
+            </b>
+        </section>
+        <section style="text-align: left;">
+
+            <h2>Kotlin beginnings</h2>
+
+            <img src="resources/jetbrains.png"
+                 style="position: absolute;top: 100px; right: 100px; z-index:500; height: 150px; width: 150px; background:none; border:none; box-shadow:none;">
+            <small>
+                <p class="fragment">2011.07 - JetBrains shows "Project Kotlin"</p>
+                <p class="fragment">2012.02 - JetBrains open-sourced code (Apache 2 Licence)</p>
+                <p class="fragment">2016.02.15 - Kotlin v1.0 released</p>
+                <p class="fragment">2017.03.01 - Kotlin v1.1 released</p>
+                <p class="fragment">2017.05 - Google announced first-class Kotlin support on Android</p>
+                <p class="fragment">2017.10 - Android Studio 3.0 (with Kotlin support for Android Development)</p>
+            </small>
+        </section>
+
+        <section data-background-image="resources/kotlin-java-android.jpeg" style="text-align: left;">
+        </section>
+
+        <section style="text-align: left;">
+
+            <h2>Kotlin beginnings</h2>
+
+            <img src="resources/jetbrains.png"
+                 style="position: absolute;top: 100px; right: 100px; z-index:500; height: 150px; width: 150px; background:none; border:none; box-shadow:none;">
+            <small>
+                <p>2011.07 - JetBrains shows "Project Kotlin"</p>
+                <p>2012.02 - JetBrains open-sourced code (Apache 2 Licence)</p>
+                <p>2016.02.15 - Kotlin v1.0 released</p>
+                <p>2017.03.01 - Kotlin v1.1 released</p>
+                <p>2017.05 - Google announced first-class Kotlin support on Android</p>
+                <p>2017.10 - Android Studio 3.0 (with Kotlin support for Android Development)</p>
+                <p class="fragment">2017.11.28 - Kotlin v1.2 released</p>
+                <p class="fragment">2018.10.29 - Kotlin v1.3 released</p>
+            </small>
+        </section>
+
+        <section data-background-image="resources/features.jpg" style="text-align: right;">
+            <b>KOTLIN
+                <div style="color: orange;">COOL FEATURES</div>
+            </b>
+        </section>
+
+        <section>
+            <h2>Null-Pointer Safety</h2>
+            <a class="fragment" href="https://www.azquotes.com/quote/1139646" title="Tony Hoare quote"><img src="//www.azquotes.com/picture-quotes/quote-i-call-it-my-billion-dollar-mistake-it-was-the-invention-of-the-null-reference-in-1965-tony-hoare-113-96-46.jpg" alt="I call it my billion-dollar mistake. It was the invention of the null reference in 1965. - Tony Hoare"></a>
+        </section>
+        <section>
+            <h2>Null-Pointer Safety</h2>
+            <pre class="fragment"><code class="Kotlin">
+var a: String = "abc"
+a = null // compilation error
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+var b: String? = "abc"
+b = null // ok
+print(b)
+                </code></pre>
+        </section>
+        <section>
+            <pre><code class="Kotlin">
+var a: String = "abc"
+var b: String? = "abc"
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val l = a.length
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val l = b.length // error: variable 'b' can be null
+                </code></pre>
+        </section>
+
+
+        <section>
+                <pre><code class="Kotlin">
+val a = "Kotlin"
+val b: String? = null
+println(b?.length)
+println(a?.length) // Unnecessary safe call
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+bob?.department?.head?.name
+                </code></pre>
+
+        </section>
+
+
+
+        <section>
+                <pre><code class="Kotlin">
+val l: Int = if (b != null) b.length else -1
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val l = b?.length ?: -1 // Elvis operator
+                </code></pre>
+        </section>
+
+        <section>
+            <p>But for NPE-lovers there is ...</p>
+            <pre><code class="Kotlin">
+val l = b!!.length
+                </code></pre>
+        </section>
+
+        <section>
+            <h2>Extension Functions</h2>
+            <pre class="fragment"><code class="Kotlin">
+fun List&ltInt&gt.swap(index1: Int, index2: Int) {
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
+}
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val l = listOf(1, 2, 3)
+l.swap(0, 2) // 'this' inside 'swap()' will hold the value of 'l'
+                </code></pre>
+        </section>
+
+        <section>
+            <p>Generic</p>
+            <pre><code class="Kotlin">
+fun &ltT&gt List&ltT&gt.swap(index1: Int, index2: Int) {
+    val tmp = this[index1] // 'this' corresponds to the list
+    this[index1] = this[index2]
+    this[index2] = tmp
+}
+                                </code></pre>
+
+        </section>
+
+        <section>
+            <p class="fragment" data-fragment-index="3">Extensions are resolved statically</p>
+            <pre><code class="Kotlin">
+open class C
+class D: C()
+
+fun C.foo() = "c"
+fun D.foo() = "d"
+
+fun printFoo(c: C) {
+    println(c.foo())
+}
+
+fun main(){
+    printFoo(D())
+}
+
+                                </code></pre>
+            <pre class="fragment" data-fragment-index="2"><code class="Kotlin">
+Printed result: c
+                                </code></pre>
+        </section>
+
+        <section>
+            <p>Nullable Receiver</p>
+            <pre><code class="Kotlin">
+fun Any?.toString(): String {
+    if (this == null) return "null"
+    // after the null check, 'this' is autocast to a non-null type, so the toString() below
+    // resolves to the member function of the Any class
+    return toString()
+}
+                                </code></pre>
+        </section>
+
+        <section>
+            <p>Extension Properties</p>
+            <pre class="fragment" ><code class="Kotlin">
+val &ltT&gt List&ltT&gt.lastIndex: Int
+    get() = size - 1
+                                </code></pre>
+            <pre class="fragment" ><code class="Kotlin">
+val Foo.bar = 1 // error: initializers are not allowed
+                // for extension properties
+                                </code></pre>
+        </section>
+
+        <section>
+            <p>Scope of Extension</p>
+            <pre class="fragment"><code class="Kotlin">
+package foo.bar
+
+fun Baz.goo() { ... }
+                                </code></pre>
+            <pre class="fragment"><code  class="Kotlin">
+package com.example.usage
+
+import foo.bar.goo // importing all extensions by name "goo"
+                   // or
+import foo.bar.*   // importing everything from "foo.bar"
+
+fun usage(baz: Baz) {
+    baz.goo()
+}                                </code></pre>
+        </section>
+
+
+        <section>
+            <h2>Operator overloading</h2>
+
+            <div class="fragment">
+                <pre><code>
+-a, +a, !a, a++, a--</code></pre>
+            </div>
+
+            <div class="fragment">
+                <pre><code>
+a[i], a[i] = b, a(), a(i)
+                </code></pre>
+            </div>
+
+            <div class="fragment">
+                <pre><code>
+a + b, a - b, a * b, a / b, a % b, a..b, a in b, a !in b</code></pre>
+            </div>
+        </section>
+
+
+        <section>
+            <div>
+                <pre><code>
+a += b, a -= b, a *= b, a /= b, a %= b</code></pre>
+            </div>
+
+            <div class="fragment">
+                <pre><code>
+a == b, a != b
+
+a > b, a < b, a <= b, a >= b</code></pre>
+            </div>
+
+        </section>
+
+        <section>
+<p>Cheatsheet</p>
+            <img src="resources/cheatsheet.png" height="30%" width="30%"/>
+        </section>
+
+        <section>
+            <p>Example usage</p>
+            <pre><code>
+data class Counter(val dayIndex: Int) {
+    operator fun plus(increment: Int): Counter {
+        return Counter(dayIndex + increment)
+    }
+}
+            </code></pre>
+            <pre class="fragment"><code>
+data class Counter(val dayIndex: Int)
+
+operator fun Counter.plus(increment: Int): Counter {
+    return Counter(dayIndex + increment)
+}
+
+            </code></pre>
+
+            </code></pre>
+            <pre class="fragment"><code>
+val c = Counter(10) + 5 // c == Counter(15)
+            </code></pre>
+        </section>
+
+<section>
+    <p>Example usage</p>
+    <pre><code>
+var list: List&ltString&gt = ArrayList()
+
+list += "Hello" //list contains [Hello]
+list += "World" //list contains [Hello, World]
+
+println(list[0]) // prints 'Hello'
+println("World" in list) //prints true
+
+list -= "World" //list contains [Hello]
+println("World" in list) //prints false
+
+var list2: List&ltString&gt = list + "World" //list2 contains [Hello, World]
+println("World" in list2) //prints true
+    </code></pre>
+</section>
+        <section>
+            <h2>Data classes</h2>
+            <pre class="fragment"><code class="Kotlin">
+data class User(val name: String, val age: Int)
+                </code></pre>
+            <p class="fragment"><code>equals() / hashCode()</code> pair</p>
+            <p class="fragment"><code>toString()</code> as <code>"User(name=John, age=42)"</code></p>
+            <p class="fragment"><code>componentN()</code> functions corresponding to the properties in their order of declaration</p>
+            <p class="fragment"><code>copy()</code> function</p>
+        </section>
+
+        <section>
+            <pre class="fragment"><code class="Kotlin">
+data class User(val name: String = "", val age: Int = 0)
+            </code></pre>
+        </section>
+
+        <section>
+            <pre><code class="Kotlin">
+fun copy(name: String = this.name, age: Int = this.age)
+                = User(name, age)
+            </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val jack = User(name = "Jack", age = 1)
+val olderJack = jack.copy(age = 2)
+            </code></pre>
+        </section>
+
+        <section>
+            <h2>Strings ++</h2>
+            <pre class="fragment"><code class="Kotlin">
+for (c in str) {
+    println(c)
+}
+                </code></pre>
+        </section>
+
+        <section>
+            <pre><code class="Kotlin">
+val s = "Hello, world!\n"
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val text = """
+    for (c in "foo")
+        print(c)
+"""                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val text = """
+    |Tell me and I forget.
+    |Teach me and I remember.
+    |Involve me and I learn.
+    |(Benjamin Franklin)
+    """.trimMargin()
+                </code></pre>
+        </section>
+
+        <section>
+            <p>String templates</p>
+            <pre class="fragment"><code class="Kotlin">
+val i = 10
+println("i = $i") // prints "i = 10"                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val s = "abc"
+println("$s.length is ${s.length}") // prints "abc.length is 3"
+                </code></pre>
+        </section>
+
+ <!--       <section>
+            <h2>Coroutines</h2>
+            <pre class="fragment"><code class="Kotlin">
+// https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html
+                </code></pre>
+        </section>
+-->
+        <section>
+            <h2>When expression</h2>
+            <pre class="fragment"><code class="Kotlin">
+when (x) {
+    1 -> print("x == 1")
+    2 -> print("x == 2")
+    else -> { // Note the block
+        print("x is neither 1 nor 2")
+    }
+}
+                </code></pre>
+            <p class="fragment">... switch <big class="fragment">++</big></p>
+        </section>
+
+        <section>
+            <pre><code class="Kotlin">
+when (x) {
+    0, 1 -> print("x == 0 or x == 1")
+    parseInt(s) -> print("s encodes x")
+    else -> print("s does not encode x")
+}
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+when (x) {
+    in 1..10 -> print("x is in the range")
+    in validNumbers -> print("x is valid")
+    !in 10..20 -> print("x is outside the range")
+    else -> print("none of the above")
+}
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+when (val response = executeRequest()) {
+    is Success -> response.body
+    is HttpError -> throw HttpException(response.status)
+}
+            </code>
+            </pre>
+        </section>
+
+        <section>
+            <p>Replacement for an <code>if-else</code> chain</p>
+            <pre><code class="Kotlin">
+when {
+    x.isOdd() -> print("x is odd")
+    x.isEven() -> print("x is even")
+    else -> print("x is funny")
+}
+                </code></pre>
+            <!--
+            https://kotlinlang.org/docs/reference/control-flow.html#when-expression
+            -->
+        </section>
+
+        <section>
+            <h2>Smart Casts</h2>
+            <div class="fragment">
+                <p>Operators <code>is</code> and <code>!is</code> </p>
+            <pre><code class="Kotlin">
+fun demo(x: Any) {
+    if (x is String) {
+        print(x.length)
+    }
+
+    if (x !is String) { // same as !(x is String)
+        print("Not a String")
+    }
+    else {
+        print(x.length)
+    }
+}
+                </code></pre>
+            </div>
+        </section>
+
+        <section>
+                <pre><code class="Kotlin">
+fun demo(x: Any) {
+    if (x is String) {
+        print(x.length) // x is automatically cast to String
+    }
+
+    if (x !is String) {
+        print("Not a String")
+    }
+    else {
+        print(x.length) // x is automatically cast to String
+    }
+}
+                </code></pre>
+        </section>
+
+        <section>
+                <pre><code class="Kotlin">
+// x is automatically cast to string
+//    on the right-hand side of `||`
+if (x !is String || x.length == 0) return
+
+// x is automatically cast to string
+//    on the right-hand side of `&&`
+if (x is String && x.length > 0) {
+    print(x.length) // x is automatically cast to String
+}
+                </code></pre>
+        </section>
+
+        <section>
+                <pre><code class="Kotlin">
+when (x) {
+    is Int -> print(x + 1)
+    is String -> print(x.length + 1)
+    is IntArray -> print(x.sum())
+}
+                </code></pre>
+        </section>
+
+        <section>
+            <p><code>as</code> keyword</p>
+            <div class="fragment">
+            <p>Unsafe cast operator</p>
+                <pre><code class="Kotlin">
+val x: String = y as String
+// exception when it doesn't make sense (ex. casting null)
+
+val x: String? = y as String?
+// it will be OK even when y is null
+                </code></pre>
+            </div>
+            <div class="fragment">
+                <p>Safe cast operator</p>
+                <pre><code class="Kotlin">
+val x: String? = y as? String
+// returns null on failure
+                </code></pre>
+            </div>
+
+            <!--
+            https://kotlinlang.org/docs/reference/typecasts.html
+            -->
+        </section>
+
+
+<!--        <section>
+            <h2>Inline Classes (experimental)</h2>
+
+            // https://kotlinlang.org/docs/reference/inline-classes.html
+        </section>
+
+        <section>
+            <h2>Inline Functions</h2>
+
+            // https://kotlinlang.org/docs/reference/inline-functions.html
+            // https://kotlinlang.org/docs/reference/lambdas.html
+        </section>
+-->
+        <section>
+            <h2>Destructuring Declarations</h2>
+            <pre class="fragment"><code class="Kotlin">
+val (name, age) = person
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+for ((name, age) in people) {
+    // do something with name and  age
+}
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+for ((key, value) in map) {
+   // do something with the key and the value
+}
+                </code></pre>
+        </section>
+
+        <section>
+            <p>How it works</p>
+            <pre><code class="Kotlin">
+val (name, age) = person
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val name = person.component1()
+val age = person.component2()
+                </code></pre>
+            <pre class="fragment"><code class="Kotlin">
+val (_, status) = getResult()
+                </code></pre>
+        </section>
+
+
+        <section>
+            <h2>Sealed Classes</h2>
+
+            <pre><code class="Kotlin">
+sealed class Expr
+
+data class Const(val number: Double) : Expr()
+data class Sum(val e1: Expr, val e2: Expr) : Expr()
+object NotANumber : Expr()
+                </code></pre>
+            <pre><code class="Kotlin">
+fun eval(expr: Expr): Double = when(expr) {
+    is Const -> expr.number
+    is Sum -> eval(expr.e1) + eval(expr.e2)
+    NotANumber -> Double.NaN
+    // the `else` clause is not required
+    //    because we've covered all the cases
+}
+                </code></pre>
+        </section>
+
+        <section data-background-image="resources/diff2.jpg" style="text-align: left; vertical-align: top;">
+            <b>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                <div>&nbsp</div>
+                JAVA VS KOTLIN
+                <div style="color: orange;">DIFFERENCES</div>
+            </b>
+        </section>
+
+        <section>
+            <p>Remember: I'm showing only few differences <br/>of my choice ...</p>
+        </section>
+
+        <section>
+            <p>Kotlin <code>'=='</code> means Java <code>equals()</code></p>
+            <p>Java <code>'=='</code> means Kotlin <code>'==='</code></p>
+        </section>
+        <section>
+            <p>There's no <code>'new'</code> keyword in Kotlin</p>
+            <pre class="fragment"> <code class="Kotlin">
+val list: List = ArrayList()
+            </code>
+            </pre>
+            <pre class="fragment"><code class="Kotlin">
+val list = ArrayList() //type inference
+            </code>
+            </pre>
+
+        </section>
+
+
+        <section>
+            <p>Kotlin classes can have properties</p>
+            <pre class="fragment"> <code class="Kotlin">
+class Address {
+    var name: String = ...
+    var street: String = ...
+    var city: String = ...
+    var state: String? = ...
+    var zip: String = ...
+}
+            </code>
+            </pre>
+            <pre class="fragment"><code class="Kotlin">
+var stringRepresentation: String
+    get() = this.toString()
+    set(value) {
+        setDataFromString(value) // parses the string and assigns values to other properties
+    }
+            </code>
+            </pre>
+        </section>
+        <section>
+            <p>There's no primitive types in Kotlin</p>
+            <p>... but in byte code not-null types still are primitives</p>
+        </section>
+        <section>
+            <p><code>if</code>, <code>when</code> are also expressions</p>
+            <pre class="fragment"><code class="Kotlin">
+max = if (a > b) a else b
+            </code>
+            </pre>
+            <pre class="fragment"><code class="Kotlin">
+result = when (x) {
+    1 -> 11
+    2 -> 22
+    else -> 0
+}
+            </code>
+            </pre>
+
+        </section>
+        <section>
+            <p>Kotlin does not have checked exceptions</p>
+        </section>
+        <section>
+            <p>Kotlin does not have static members</p>
+            <p>... but there's companion object ...</p>
+            <pre class="fragment"><code class="Kotlin">
+class MyClass {
+    companion object Factory {
+        fun create(): MyClass = MyClass()
+    }
+}
+            </code>
+            </pre>
+            <pre class="fragment"><code class="Kotlin">
+val instance = MyClass.create()
+            </code>
+            </pre>
+        </section>
+        <section>
+            <p>Kotlin has type inference for variables and properties</p>
+            <p>... from Java 10 there is support for type inference local variables only</p>
+        </section>
+        <section>
+            <p>Kotlin has build in singleton support</p>
+            <pre class="fragment"><code class="Kotlin">
+object DataProviderManager {
+    fun registerDataProvider(provider: DataProvider) {
+        // ...
+    }
+
+    val allDataProviders: Collection&ltDataProvider&gt
+        get() = // ...
+}
+            </code>
+            </pre>
+            <pre class="fragment"><code class="Kotlin">
+DataProviderManager.registerDataProvider(...)
+            </code>
+            </pre>
+
+
+        </section>
+
+
+
+
+
+
+        <section data-background-image="resources/start.jpg" style="text-align: right;">
+            <b>HOW TO
+                <div style="color: orange;">START</div>
+                ?</b>
+        </section>
+        <section>
+            <h2>Kotlin Documentation</h2>
+            <a href="https://kotlinlang.org/docs/reference/" target="_blank">kotlinlang.org/docs</a>
+            <img src="resources/kotlin-doc.png">
+        </section>
+
+        <section>
+            <h2>Kotlin Koans</h2>
+            <a href="https://play.kotlinlang.org/koans/overview" target="_blank">play.kotlinlang.org/koans</a>
+            <img src="resources/kotlin-koens.png">
+        </section>
+
+        <section>
+            <h2>Convert JAVA file to Kotlin</h2>
+            <img src="resources/convert.png">
+        </section>
+
+
+
+
+
+
+
+
+
+
+        <section data-background-image="resources/more.jpg" style="text-align: right;">
+            <b>WHERE
+                <div style="color: orange;">LEARN MORE</div>
+                ?</b>
+        </section>
+        <section>
+            <h2>JetBrains Blog: Kotlin</h2>
+            <a href="https://blog.jetbrains.com/kotlin/" target="_blank">blog.jetbrains.com/kotlin</a>
+            <img src="resources/kotlin-blog.png">
+        </section>
+
+        <section>
+            <h2>Kotlin.link</h2>
+            <a href="https://kotlin.link/" target="_blank">kotlin.link</a>
+            <img src="resources/kotlin-link.png">
+        </section>
+
+        <section>
+            <h2>Kotlin Weekly</h2>
+            <a href="http://www.kotlinweekly.net/" target="_blank">kotlinweekly.net</a>
+            <img src="resources/kotlin-weekly.png">
+        </section>
+
+        <section>
+            <h2>Talking Kotlin Podcast</h2>
+            <a href="http://talkingkotlin.com" target="_blank">talkingkotlin.com</a>
+            <img src="resources/kotlin-podcast.png">
+        </section>
+
+
+
+        <section>
+            <h2>Conference Presentations</h2>
+            <p><small>Venkat Subramaniam - Kotlin for Java Programmers (JBCNConf 2018)</small></p><iframe data-src="https://www.youtube.com/embed/COi4gy6A3DA"></iframe>
+            <p><small>Paweł Byszewski - Kotlin, why ? (Confitura 2016)</small></p><iframe data-src="https://www.youtube.com/embed/PFCax3AxW-U"></iframe>
+        </section>
+
+        <section>
+            <h2>Conference Presentations</h2>
+            <p><small>Andey Breslav - How to Kotlin: from the Lead Kotlin Language Designer (Google I/O 2018)</small></p><iframe data-src="https://www.youtube.com/embed/6P20npkvcb8"></iframe>
+            <p><small>Hadi Hariri - Functional Programming with Kotlin (GOTO 2018)</small></p><iframe data-src="https://www.youtube.com/embed/eNe5Nokrjdg"></iframe>
+        </section>
+
+        <section>
+            <h2>KotlinConf</h2>
+            <p><small>KotlinConf 2018</small></p><iframe data-src="https://www.youtube.com/embed/xvdz2H7A7ig?list=PLQ176FUIyIUbVvFMqDc2jhxS-t562uytr"></iframe>
+            <p><small>KotlinConf 2017</small></p><iframe data-src="https://www.youtube.com/embed/spFtUgL32yA?list=PLQ176FUIyIUY6UK1cgVsbdPYA3X5WLam5"></iframe>
+        </section>
+
+        <section>
+            <h2>Youtube Videos</h2>
+            <p><small>Jake Wharton - 10 Kotlin Tricks in 10 ish minutes (Devoxx)</small></p><iframe data-src="https://www.youtube.com/embed/0sPzDwS55wM"></iframe>
+            <p><small>Kotlin Coroutines Tutorial</small></p><iframe data-src="https://www.youtube.com/embed/jYuK1qzFrJg"></iframe>
+        </section>
+
+        <section>
+            <h1>Thank you</h1>
+        </section>
+
+        <section>
+            <p>Photo Credits:</p>
+            <small>
+                <ul>
+
+                    <li>Slide 'WTF is Kotlin ?': Photo by <a
+                            href="https://unsplash.com/photos/7SjiMVQ8i10?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kyle
+                        Simmons</a></li>
+                    <li>Slide 'Kotlin History': Photo by <a
+                            href="https://unsplash.com/photos/amkdlZFdMiA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joel
+                        Overbeck</a></li>
+                    <li>Slide 'Kotlin Cool Features': Photo by <a
+                            href="https://unsplash.com/photos/qDY9ahp0Mto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ben
+                        White</a></li>
+                    <li>Slide 'Why Kotlin ?': Photo by <a
+                            href="https://unsplash.com/photos/q65bNe9fW-w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mari
+                        Lezhava</a></li>
+                    <li>Slide 'How to Start ?': Photo by <a
+                            href="https://unsplash.com/photos/n83ma0Wd4eY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Martin
+                        Widenka</a></li>
+                    <li>Slide 'Where learn More ?': Photo by <a
+                            href="https://unsplash.com/photos/m2iqRdVGprU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Phad
+                        Pichetbovornkul</a></li>
+                    <li>Slide 'Diffrences ?': Photo by <a
+                            href="https://unsplash.com/photos/8Zt0xOOK4nI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Dietmar Becker</a></li>
+                    </li>
+                    <li>Meme 'Kotlin-Android-Java': By <a
+                            href="https://twitter.com/brijeshmasrani/status/901291501870751745">Brijesh Masrani</a></li>
+                    </li>
+                    <li>Operator Overloading Cheatsheet: By <a
+                            href="https://medium.com/@adamregaszrethy/tasty-kotlin-recipes-1-operator-overloading-bfdad55a0d0f">Adam P. Regasz-Rethy</a></li>
+                    </li>
+                </ul>
+            </small>
+        </section>
+    </div>
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.configure({history: true});
+    Reveal.configure({slideNumber: 'c/t'});
+    Reveal.configure({showSlideNumber: 'all'});
+
+
+    Reveal.initialize({
+        dependencies: [
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
